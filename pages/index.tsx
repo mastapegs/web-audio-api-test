@@ -9,12 +9,12 @@ const HomePage = () => {
     setAudioContext(new AudioContext())
   }, [])
 
-  const playWave = ({ type, frequency }: { type: OscillatorType, frequency: number }) => {
+  const playWave = ({ type, frequency, ampGain = 1 }: { type: OscillatorType, frequency: number, ampGain?: number }) => {
     const wave = audioContext.createOscillator()
     const amp = audioContext.createGain()
 
-    amp.gain.setValueAtTime(0.5, audioContext.currentTime)
-    amp.gain.linearRampToValueAtTime(0., audioContext.currentTime + 0.5)
+    amp.gain.setValueAtTime(ampGain, audioContext.currentTime)
+    amp.gain.linearRampToValueAtTime(0, audioContext.currentTime + 0.5)
     wave.type = type
     wave.frequency.value = frequency
 
@@ -29,11 +29,11 @@ const HomePage = () => {
   }
 
   const playSquare = (frequency) => {
-    playWave({ type: "square", frequency })
+    playWave({ type: "square", frequency, ampGain: 0.4 })
   }
 
   const playSawtooth = (frequency) => {
-    playWave({ type: "sawtooth", frequency })
+    playWave({ type: "sawtooth", frequency, ampGain: 0.4 })
   }
 
   const playTriangle = (frequency) => {
