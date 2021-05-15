@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from '../styles/Index.module.css'
 
 const HomePage = () => {
   const [audioContext, setAudioContext] = useState({} as AudioContext)
@@ -40,19 +41,23 @@ const HomePage = () => {
   }
 
   return (
-    <>
-      <h1>Web Audio API</h1>
-      <div>
-        <input type="text" disabled value={frequency} />
+    <div className={styles.container}>
+      <h1 className={styles.h1}>Web Audio API</h1>
+      <div className={styles.inputContainer}>
+        <div>
+          <input type="text" disabled value={frequency} />
+        </div>
+        <div>
+          <input type="range" min="220" max="1200" value={frequency} onChange={e => setFrequency(Number(e.target.value))} />
+        </div>
       </div>
-      <div>
-        <input type="range" min="220" max="1200" value={frequency} onChange={e => setFrequency(Number(e.target.value))} />
+      <div className={styles.btnContainer}>
+        <button className={styles.btn} onClick={() => playSine(frequency)}>Play Sine</button>
+        <button className={styles.btn} onClick={() => playTriangle(frequency)}>Play Triangle</button>
+        <button className={styles.btn} onClick={() => playSquare(frequency)}>Play Square</button>
+        <button className={styles.btn} onClick={() => playSawtooth(frequency)}>Play Sawtooth</button>
       </div>
-      <button onClick={() => playSine(frequency)}>Play Sine</button>
-      <button onClick={() => playTriangle(frequency)}>Play Triangle</button>
-      <button onClick={() => playSquare(frequency)}>Play Square</button>
-      <button onClick={() => playSawtooth(frequency)}>Play Sawtooth</button>
-    </>
+    </div>
   )
 }
 
