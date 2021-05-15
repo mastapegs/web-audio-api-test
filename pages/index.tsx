@@ -52,10 +52,10 @@ const HomePage = () => {
         </div>
       </div>
       <div className={styles.btnContainer}>
-        <button className={styles.btn} onClick={() => playSine(frequency)}>Play Sine</button>
-        <button className={styles.btn} onClick={() => playTriangle(frequency)}>Play Triangle</button>
-        <button className={styles.btn} onClick={() => playSquare(frequency)}>Play Square</button>
-        <button className={styles.btn} onClick={() => playSawtooth(frequency)}>Play Sawtooth</button>
+        <button className={styles.btn} onClick={() => playSine(frequency)}>Play Sine Wave</button>
+        <button className={styles.btn} onClick={() => playTriangle(frequency)}>Play Triangle Wave</button>
+        <button className={styles.btn} onClick={() => playSquare(frequency)}>Play Square Wave</button>
+        <button className={styles.btn} onClick={() => playSawtooth(frequency)}>Play Sawtooth Wave</button>
       </div>
     </div>
   )
