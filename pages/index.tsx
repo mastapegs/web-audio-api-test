@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const HomePage = () => {
+  const [audioContext, setAudioContext] = useState({} as AudioContext)
   const [frequency, setFrequency] = useState(440)
 
+  useEffect(() => {
+    setAudioContext(new AudioContext())
+  }, [])
+
   const playWave = ({ type, frequency }: { type: OscillatorType, frequency: number }) => {
-    const audioContext = new AudioContext();
     const wave = audioContext.createOscillator()
     const amp = audioContext.createGain()
 
