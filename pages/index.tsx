@@ -5,7 +5,7 @@ const HomePage = () => {
     const amp = audioContext.createGain()
 
     amp.gain.setValueAtTime(0.5, audioContext.currentTime)
-    amp.gain.linearRampToValueAtTime(0., audioContext.currentTime + 2)
+    amp.gain.linearRampToValueAtTime(0., audioContext.currentTime + 0.5)
     wave.type = type
     wave.frequency.value = frequency
 
